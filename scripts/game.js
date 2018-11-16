@@ -80,3 +80,10 @@ window.addEventListener('keypress', function (e) {
     }
   }
 })
+
+const thisThing = {
+  height: 1,
+  width: 2,
+}
+
+console.log(thisThing)

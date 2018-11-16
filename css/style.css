@@ -20,15 +20,16 @@ html {
 
 .gameboard {
   border: 0.25vw solid black;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+    grid-template-columns: repeat(10, 1fr);
+  grid-gap: 0;
   cursor: pointer;
 }
 
-.row {
+/* .row {
   display: flex;
   flex-direction: row;
-}
+} */
 
 .col {
   height: 4vw;
@@ -56,31 +57,43 @@ html {
 .boat {
   opacity: 0.8;
   height: 4vw;
-  border: 1px solid black;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .boat-5 {
   width: 25vw;
   background-color: red;
+  background-image: url("../img/SVG/boat-5.svg");
+  background-size: 25vw 4vw;
 }
 
 .boat-4 {
   width: 20vw;
-  background-color: indianred;
+  background-color: orange;
+  background-image: url("../img/SVG/boat-4.svg");
+  background-size: 20vw 4vw;
 }
 
 .boat-3 {
   width: 15vw;
-  background-color: orangered;
-}
-
-.boat:nth-child(4) {
-  background-color: orange;
+  background-color: yellow;
+  background-image: url("../img/SVG/boat-3-2.svg");
+  background-size: 15vw 4vw;
 }
 
 .boat-2 {
+  width: 15vw;
+  background-color: green;
+  background-image: url("../img/SVG/boat-3-1.svg");
+  background-size: 15vw 4vw;
+}
+
+.boat-1 {
   width: 10vw;
-  background-color: goldenrod;
+  background-color: blue;
+  background-image: url("../img/SVG/boat-2.svg");
+  background-size: 10vw 4vw;
 }
 
 .timer {
