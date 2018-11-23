@@ -4,6 +4,7 @@ const $board = document.getElementById('gameboard')
 const $rows = $board.getElementsByClassName('row')
 const $cols = Array.from($board.getElementsByClassName('col'))
 let boatLength = 0
+let boatID = null
 let boatColor = null
 let orientation = 'horizontal'
 
@@ -11,11 +12,24 @@ $boatContainer.addEventListener('click', function (e) {
   if (e.target.classList.contains('boat')) {
     const thisBoat = e.target.closest('.boat')
     boatColor = window.getComputedStyle(thisBoat).backgroundColor
+    for (const col of $cols) {
+      if (col.style.backgroundColor === boatColor) {
+        col.style.backgroundColor = "#fff"
+        col.classList.remove('ship')
+        col.classList.remove('locked')
+      }
+    }
     for (const boat of boats) {
       boat.classList.remove('active')
     }
     e.target.classList.add('active')
-    boatLength = e.target.dataset.length
+    boatLength = thisBoat.dataset.length
+    boatID = `boat-${thisBoat.dataset.shipid}`
+    for (const col of $cols) {
+      if (col.dataset.shipid === boatID) {
+        delete(col.dataset.shipid)
+      }
+    }
   }
 })
 
@@ -64,8 +78,12 @@ $board.addEventListener('mouseover', function (cell) {
 $board.addEventListener('click', function (e) {
   for (const col of $cols) {
     if (col.classList.contains('ship')) {
+      if (!col.classList.contains('locked')) {
+        col.dataset.shipid = boatID
+      }
       col.classList.add('locked')
     }
+
   }
   boatColor = null
   boatLength = 0
@@ -81,9 +99,11 @@ window.addEventListener('keypress', function (e) {
   }
 })
 
-const thisThing = {
-  height: 1,
-  width: 2,
+function exportGame() {
+  const grid = []
+  for (const col of $cols) {
+    grid.push(col.dataset.shipid)
+  }
+  const gridJSON = JSON.stringify(grid)
+  return (gridJSON)
 }
-
-console.log(thisThing)

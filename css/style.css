@@ -21,7 +21,7 @@ html {
 .gameboard {
   border: 0.25vw solid black;
   display: grid;
-    grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(10, 1fr);
   grid-gap: 0;
   cursor: pointer;
 }
@@ -94,6 +94,10 @@ html {
   background-color: blue;
   background-image: url("../img/SVG/boat-2.svg");
   background-size: 10vw 4vw;
+}
+
+[data-shipID='boat-1'] {
+  background-color: coral;
 }
 
 .timer {
