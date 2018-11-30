@@ -68,11 +68,19 @@ html {
   background-size: 25vw 4vw;
 }
 
+.ship-5 {
+  background-color: red;
+}
+
 .boat-4 {
   width: 20vw;
   background-color: orange;
   background-image: url("../img/SVG/boat-4.svg");
   background-size: 20vw 4vw;
+}
+
+.ship-4 {
+  background-color: orange;
 }
 
 .boat-3 {
@@ -82,6 +90,10 @@ html {
   background-size: 15vw 4vw;
 }
 
+.ship-3 {
+  background-color: yellow;
+}
+
 .boat-2 {
   width: 15vw;
   background-color: green;
@@ -89,11 +101,19 @@ html {
   background-size: 15vw 4vw;
 }
 
+.ship-2 {
+  background-color: green;
+}
+
 .boat-1 {
   width: 10vw;
   background-color: blue;
   background-image: url("../img/SVG/boat-2.svg");
   background-size: 10vw 4vw;
+}
+
+.ship-1 {
+  background-color: blue;
 }
 
 [data-shipID='boat-1'] {

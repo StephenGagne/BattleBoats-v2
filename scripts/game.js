@@ -24,7 +24,7 @@ $boatContainer.addEventListener('click', function (e) {
     }
     e.target.classList.add('active')
     boatLength = thisBoat.dataset.length
-    boatID = `boat-${thisBoat.dataset.shipid}`
+    boatID = `ship-${thisBoat.dataset.shipid}`
     for (const col of $cols) {
       if (col.dataset.shipid === boatID) {
         delete(col.dataset.shipid)
@@ -105,5 +105,6 @@ function exportGame() {
     grid.push(col.dataset.shipid)
   }
   const gridJSON = JSON.stringify(grid)
+  localStorage.grid = gridJSON
   return (gridJSON)
 }
